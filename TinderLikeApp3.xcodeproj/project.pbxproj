@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C129DF1E272391EE00F0FEFB /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129DF1D272391EE00F0FEFB /* UIView-Extension.swift */; };
+		C129DF202723938F00F0FEFB /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129DF1F2723938F00F0FEFB /* UIColor-Extension.swift */; };
 		C19004882722C4C5005D0A15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19004872722C4C5005D0A15 /* AppDelegate.swift */; };
 		C190048A2722C4C5005D0A15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19004892722C4C5005D0A15 /* SceneDelegate.swift */; };
 		C190048C2722C4C5005D0A15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C190048B2722C4C5005D0A15 /* ViewController.swift */; };
 		C190048F2722C4C5005D0A15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C190048D2722C4C5005D0A15 /* Main.storyboard */; };
 		C19004912722C4C9005D0A15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C19004902722C4C9005D0A15 /* Assets.xcassets */; };
 		C19004942722C4C9005D0A15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C19004922722C4C9005D0A15 /* LaunchScreen.storyboard */; };
+		C190049F2722C515005D0A15 /* MoveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C190049E2722C515005D0A15 /* MoveView.xib */; };
+		C19004A12722C521005D0A15 /* MoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19004A02722C521005D0A15 /* MoveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C129DF1D272391EE00F0FEFB /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
+		C129DF1F2723938F00F0FEFB /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 		C19004842722C4C5005D0A15 /* TinderLikeApp3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderLikeApp3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19004872722C4C5005D0A15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C19004892722C4C5005D0A15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +30,8 @@
 		C19004902722C4C9005D0A15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C19004932722C4C9005D0A15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C19004952722C4C9005D0A15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C190049E2722C515005D0A15 /* MoveView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoveView.xib; sourceTree = "<group>"; };
+		C19004A02722C521005D0A15 /* MoveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C129DF1C272391D500F0FEFB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C129DF1D272391EE00F0FEFB /* UIView-Extension.swift */,
+				C129DF1F2723938F00F0FEFB /* UIColor-Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C190047B2722C4C5005D0A15 = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +75,40 @@
 			children = (
 				C19004872722C4C5005D0A15 /* AppDelegate.swift */,
 				C19004892722C4C5005D0A15 /* SceneDelegate.swift */,
-				C190048B2722C4C5005D0A15 /* ViewController.swift */,
-				C190048D2722C4C5005D0A15 /* Main.storyboard */,
+				C129DF1C272391D500F0FEFB /* Extensions */,
+				C190049D2722C4F2005D0A15 /* Controller */,
+				C190049C2722C4E7005D0A15 /* View */,
+				C190049B2722C4E1005D0A15 /* Model */,
 				C19004902722C4C9005D0A15 /* Assets.xcassets */,
 				C19004922722C4C9005D0A15 /* LaunchScreen.storyboard */,
 				C19004952722C4C9005D0A15 /* Info.plist */,
 			);
 			path = TinderLikeApp3;
+			sourceTree = "<group>";
+		};
+		C190049B2722C4E1005D0A15 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C190049C2722C4E7005D0A15 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C190048B2722C4C5005D0A15 /* ViewController.swift */,
+				C19004A02722C521005D0A15 /* MoveView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C190049D2722C4F2005D0A15 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C190048D2722C4C5005D0A15 /* Main.storyboard */,
+				C190049E2722C515005D0A15 /* MoveView.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +172,7 @@
 				C19004942722C4C9005D0A15 /* LaunchScreen.storyboard in Resources */,
 				C19004912722C4C9005D0A15 /* Assets.xcassets in Resources */,
 				C190048F2722C4C5005D0A15 /* Main.storyboard in Resources */,
+				C190049F2722C515005D0A15 /* MoveView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,8 +184,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C190048C2722C4C5005D0A15 /* ViewController.swift in Sources */,
+				C129DF202723938F00F0FEFB /* UIColor-Extension.swift in Sources */,
 				C19004882722C4C5005D0A15 /* AppDelegate.swift in Sources */,
 				C190048A2722C4C5005D0A15 /* SceneDelegate.swift in Sources */,
+				C129DF1E272391EE00F0FEFB /* UIView-Extension.swift in Sources */,
+				C19004A12722C521005D0A15 /* MoveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
