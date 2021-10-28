@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIView {
-    func removeMoveViewAnimation(x: CGFloat) {
+    func removeMoveViewAnimation(x: CGFloat, completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
             
             let degree: CGFloat = x / 40
@@ -20,6 +20,10 @@ extension UIView {
             
         } completion: { _ in
             self.removeFromSuperview()
+            if let completion = completion {
+                completion()
+            }
+            
         }
         
     }

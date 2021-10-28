@@ -7,7 +7,15 @@
 
 import UIKit
 
-class MoveView: UIView {
+
+
+
+
+class MoveView: UIView, PanGestureSender{
+    
+    
+    
+    
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -33,9 +41,13 @@ class MoveView: UIView {
                         "taki":"SYOU",
                         "line":"Alian"]
     
+    
+    
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
+//        imageView.layer.cornerRadius = 25/
         
         rigionLabel.adjustsFontSizeToFitWidth = true
         syumiLabel.adjustsFontSizeToFitWidth = true
@@ -56,19 +68,34 @@ class MoveView: UIView {
         
         let view = UINib(nibName: "MoveView", bundle: nil).instantiate(withOwner: self, options: nil).first as! UIView
         view.frame = self.bounds
-        view.layer.cornerRadius = 15
+        view.layer.cornerRadius = 25
         view.clipsToBounds = true
         addSubview(view)
         setupGradientLayer()
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panMoveView))
         view.addGestureRecognizer(panGesture)
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let viewVC = storyboard.instantiateViewController(withIdentifier: "viewVC") as! ViewController
+//        viewVC.delegate = self
     }
     
     override func layoutSubviews() {
         gradientLayer.frame = self.bounds
     }
     
+    func nope(view: MoveView) {
+        print("発動！！！")
+        view.nopeLabel.alpha = 1
+    }
+    
+    func good(view: MoveView) {
+        view.goodLabel.alpha = 1
+    }
+    
+    
     func setupGradientLayer() {
+        
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
         gradientLayer.locations = [0.3, 1.1]
         imageView.layer.addSublayer(gradientLayer)
@@ -79,38 +106,46 @@ class MoveView: UIView {
     @objc func panMoveView(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: self)
         
-        guard let view = gesture.view else { return }
+        //        guard let view = gesture.view else { return }
         
         if gesture.state == .changed {
-            let dgree: CGFloat = translation.x / 20
-            let angle = dgree * .pi / 100
-            let rotateTranslation = CGAffineTransform(rotationAngle: angle)
-            self.transform = rotateTranslation.translatedBy(x: translation.x, y: translation.y)
-            
-            let ratio: CGFloat = 1 / 100
-            let ratioValue = ratio * translation.x
-            
-            if translation.x > 0 {
-                self.goodLabel.alpha = ratioValue
-            }else if translation.x < 0 {
-                self.nopeLabel.alpha = -ratioValue
-            }
-            
+            panGestureChanged(translation: translation)
         }else if gesture.state == .ended {
-            if translation.x <= -120 {
-                self.removeMoveViewAnimation(x: -600)
-            } else if translation.x >= 120 {
-                self.removeMoveViewAnimation(x: 600)
-            } else {
-                UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
-                    self.transform = .identity
-                    self.layoutIfNeeded()
-                    self.goodLabel.alpha = 0
-                    self.nopeLabel.alpha = 0
-                }
-            }
+            panGestureEnded(translation: translation)
         }
         
+    }
+    
+    
+    func panGestureChanged(translation: CGPoint) {
+        let dgree: CGFloat = translation.x / 20
+        let angle = dgree * .pi / 100
+        let rotateTranslation = CGAffineTransform(rotationAngle: angle)
+        self.transform = rotateTranslation.translatedBy(x: translation.x, y: translation.y)
+        
+        let ratio: CGFloat = 1 / 100
+        let ratioValue = ratio * translation.x
+        
+        if translation.x > 0 {
+            self.goodLabel.alpha = ratioValue
+        }else if translation.x < 0 {
+            self.nopeLabel.alpha = -ratioValue
+        }
+    }
+    
+    func panGestureEnded(translation: CGPoint) {
+        if translation.x <= -120 {
+            self.removeMoveViewAnimation(x: -600, completion: nil)
+        } else if translation.x >= 120 {
+            self.removeMoveViewAnimation(x: 600, completion: nil)
+        } else {
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
+                self.transform = .identity
+                self.layoutIfNeeded()
+                self.goodLabel.alpha = 0
+                self.nopeLabel.alpha = 0
+            }
+        }
     }
     
     

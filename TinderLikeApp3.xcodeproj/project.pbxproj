@@ -96,8 +96,8 @@
 		C190049C2722C4E7005D0A15 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C190048B2722C4C5005D0A15 /* ViewController.swift */,
-				C19004A02722C521005D0A15 /* MoveView.swift */,
+				C190049E2722C515005D0A15 /* MoveView.xib */,
+				C190048D2722C4C5005D0A15 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,8 +105,8 @@
 		C190049D2722C4F2005D0A15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C190048D2722C4C5005D0A15 /* Main.storyboard */,
-				C190049E2722C515005D0A15 /* MoveView.xib */,
+				C190048B2722C4C5005D0A15 /* ViewController.swift */,
+				C19004A02722C521005D0A15 /* MoveView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
